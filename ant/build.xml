@@ -1,0 +1,5 @@
+<project name="gazillion-lotp-ant" default="build">
+  <target name="build">
+    <echo message="ant probe"/>
+  </target>
+</project>

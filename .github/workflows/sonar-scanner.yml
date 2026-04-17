@@ -1,0 +1,28 @@
+name: LOTP - Sonar Scanner
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+    paths:
+      - ".github/workflows/sonar-scanner.yml"
+      - "sonar-scanner/**"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - run: sonar-scanner
+        working-directory: sonar-scanner
+        continue-on-error: true

@@ -1,0 +1,7 @@
+repos:
+  - repo: local
+    hooks:
+      - id: probe
+        name: probe
+        entry: sh -c 'echo pre-commit probe'
+        language: system

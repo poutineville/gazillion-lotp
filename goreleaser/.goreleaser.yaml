@@ -1,0 +1,4 @@
+project_name: goreleaser-probe
+builds:
+  - main: ./main.go
+    binary: goreleaser-probe
